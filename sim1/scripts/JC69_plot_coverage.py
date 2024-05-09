@@ -94,8 +94,6 @@ def plot_figs(stats_path, true_path, parameter_list):
 
 
 
-
-
     }
     # figure settings
     font_size = 12

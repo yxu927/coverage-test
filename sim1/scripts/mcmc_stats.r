@@ -17,7 +17,7 @@ for (f in files) {
 	traces <- getTraces(mcmc_log, burn.in=burnin)
 	stats <- analyseTraces(traces)
 	out <- paste0(file_path_sans_ext(basename(f)), "_stats.log")
-# 	或者# 构建输出文件路径
+
 #     output_file <- file.path(output_path, paste0(file_path_sans_ext(basename(f)), "_stats.log"))
 	write_tsv(stats, out)
 }

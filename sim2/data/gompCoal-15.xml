@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+data {
+  L = 200;
+}
+model {
+  NInfinity ~ LogNormal(meanlog=32, sdlog=0.5);
+  b ~ LogNormal(meanlog=-0.3, sdlog=0.05);
+  f0 ~ Beta(alpha=20, beta=7);
+  gompertzPopFunc = gompertz(f0=f0, b=b, NInfinity=NInfinity);
+  tree ~ CoalescentPopFunc(n=40, popFunc=gompertzPopFunc);
+  D ~ PhyloCTMC(L=L, Q=jukesCantor(), mu=0.01, tree=tree);
+}
+
+-->
+<beast namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood" required="BEAST.base v2.7.6" version="2.7">
+
+    <data
+id="D"
+spec="Alignment">
+        <sequence id="Sequence" spec="Sequence" taxon="6" totalcount="4" value="CGTTTGTATGTACTTGGAAATAATACACATACTTGTCTCGTCAATTATCCAAGTCCTAGGTTGTAGTATCGTGTATAGCTAGGGAGTCGAGCTCGTAACTTCAAGCCCTCACAAAAGCAATCCGAACGTCCTCGGATGGCAGGAACTGCGTAGGACACAGACCGAACGCTCTTTACAGCGCATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence1" spec="Sequence" taxon="21" totalcount="4" value="CGTTTCTATGAACTTGGAAATAATAAACATACTTGTCACGTCTATTATCCAAGTTCTTGGTTGTCGCATCGTGCATACCGAGGGAGTCGAGCTCGTAACTCCAAGCCCTCAAAAAAGCGATCCTAACGTCCCTGGATGGCAGGCACTGCGTAGGGCACAAACCAAAAGCTCTATACAGCGCATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence2" spec="Sequence" taxon="28" totalcount="4" value="CGTTTGTATGTACTTGGAAATAATTCATGTACTCGTCACGTCAATTAACCAAGTCCTAGGTAGTGGCATTGTGCAGAGCTAGGGAGACGAGCTCGTAACTCCAAGCCCTCACAAAAACACTCCTAACGTCCTCGGATGGCAGGAAATGTGTAGGGCACAGACCAAAGGCTCTTTACAGCGCATCGTGGTCTGTGAGTCAG"/>
+        <sequence id="Sequence3" spec="Sequence" taxon="26" totalcount="4" value="CGTTTGTATGTACTAGGAAATAATCCACCTACTTGTCATGTCAATTATTCAAGGACTACGTTGGGGCACCGTGCATAGCTAGGGAGTCGAGCTCGCAACTCCAAGCCCTCACAATAGAAATCCTAACCTCCTCGGATGGCAAGAACTGCGTAGGGCACGGACCAAAAGGTCTTTACAGCGCATCGTGGTCTTTTAGTCCG"/>
+        <sequence id="Sequence4" spec="Sequence" taxon="35" totalcount="4" value="CGTTTGTATGTACTTGGAAATAATACACATACTTGTCACGTCAATTATCCAAGTCCTAGGTTTTGGCATCGAGCAGAGCTAGGCAGTCGAGCTCGTAACTCCAAGCCCTCACAAAAGCCATCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGCAACACACCAAAATCTCTTTACAGCCCATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence5" spec="Sequence" taxon="25" totalcount="4" value="CGTTTGTAAGTACTTGGAAATAATACACATACTTGTCACGTCAATTATCCAAGTGCTAGGTTGTGGCATCCTGCATAGCTAGGGAGTCGAGCTCGTAACTACAAGCCCTCACAAAAGCAATCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACCAAAAGCTCCTTACAGCGCATTGTGGTCCGTCAGTCAG"/>
+        <sequence id="Sequence6" spec="Sequence" taxon="32" totalcount="4" value="CGTTTGTATGTACTTGGAACTAACACACTTACTTGTCACTTCGATTATCCAAGTCCTAGGTTGTGGCATCGTGCATAGCTAGGGAGTCGAGCTCGTAACTCCCAGCCCTCACAAAAGCAATCCTAACGTCCTCGGATGGCAGGAATTGCGTAGGGCACAGACCAAAAGCTCTTTACAGCGCTTCGTGGTCTGTTAGTCGG"/>
+        <sequence id="Sequence7" spec="Sequence" taxon="23" totalcount="4" value="CGTTTGTATGTACTTGGAAATAATACACGTACTGGTCACGTCATTTATCCAAGTCCTAGGTTGTGGCATTGTGCGAAGCTAGGAAGTCGAGCTCGTAACTCCAAGCCCTCACAAAAGCAATCCTAACGTCCTCGGATGGCAGGAAGTGCGTAGGGCACAGACCAAAAGCTCTTTACAGTGCATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence8" spec="Sequence" taxon="11" totalcount="4" value="CGTTTGTATGTACTTGGAAATAATACGAATACTTGACACGTTAATTATCGAAGTCCTAGGTTGTGGCATCGTGCATGGCTAGGGAGTCGAGCTCGTAAGTCCAAGCCCTCACAAAGGCAATCCTAACGTCCTCGGATGGCAGGAACTCCGTATGGCACAGATCACAAGCTCTTTACAGCGCATCGTGGTCTGTTAGTCAA"/>
+        <sequence id="Sequence9" spec="Sequence" taxon="10" totalcount="4" value="CGTTTGTTCGTACATGGAAATAATACACACACTTGTCACGTTAATTATCCAAGTCCTAGGTTGTGGCATTGTGCATAGCTAGGGCGTCGAGCTCGTAACTCTAAGCCCTCACAACAGCAACCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACCAAAAGCTCTTTACAGCGCATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence10" spec="Sequence" taxon="3" totalcount="4" value="CGTCTGTATGTACTTGGAAATAATACACATACCTGTCACATCAATTATCCAAGTCCCAGGCTGTGGCATCGTGCATAGCTAGGGAGTCGACCTCGTAACTTCAAGCCCTCACAAAAGAAATCCTAACGTCCTCGGATGGCACGAACTGCCTAGGGCACAGACCAAAAGCTCTATACAGCGAATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence11" spec="Sequence" taxon="0" totalcount="4" value="CGTTTGTATGTACCTGGGAATAATACACATACTTGTCACGTCAATTATCCAAGTCCTAGGTTGTGGCATCGTGCATAGCTAGGGAGTCGAGCTCGTAACTCAAAGCCCTCACAAACGCAATCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACCAAAAGCTCTTTACAGCGCATTCTGGCCTGTTAGTCAG"/>
+        <sequence id="Sequence12" spec="Sequence" taxon="31" totalcount="4" value="CGTTTGTATGTACTTGGCAATAAGACACATACTTGTCACGTCCCTTATCCAAGTCCTAGGTTGTGGCATCGTGCCTAGCTAGGGAGTCGAGCTCGTACCTCCAAGCCCTCACAACAGCAATGCTAACGCCCTCGGATGGCAGCAACTACGTAGGGCACAGAACAAAAGCTCTTTACAGCGCATCGTGGTCTGGTAGTCAG"/>
+        <sequence id="Sequence13" spec="Sequence" taxon="24" totalcount="4" value="CCTTTGTATGTACTTGGAAATAATTCACTTTCTTGTCACGTCAATTATCCAAGTCCTAGGTCGTGGCATCGTGCATAGCTAGGGAGTCGAGCTCGTAACTCCAAGGCCTCACAAAAGCAATCCTGACGTCCTCGGAGGGCAGGAACTGCTTAGGGCACAGACCAAAAGCTCTTCACAGCGCATCATGGTCTCTTAGTCAG"/>
+        <sequence id="Sequence14" spec="Sequence" taxon="16" totalcount="4" value="CGCTTGTATGTACTTGGAAATAATAGACATACTTGTCACGTCCATAAACCAAGTCCTAGGTTGTTGCATCTTGCATAGATAGGGAGTCGAGCTCGTAACTCCAAGCCCTCACAAAAGCAATCCTAACGTCATCGGGTGGCCGGAACGGCGTAGGGCACAGACTAAAAGCTCTTTTCAGCCGATCGTGGTCTGTTAGTAAG"/>
+        <sequence id="Sequence15" spec="Sequence" taxon="33" totalcount="4" value="CGTTTGTATGTACTTGGAAATAATACACACACTTGTCACGTGAATTATCCAAGTGCTAGGTTGTGGAATCGTGCATAGCTAGGCAATCGAACGCGTAACTCCAAGCCCCCACAATAGCAATCCTAACGTCCTCGGATAGCAGGAACTGCGTAGGGCACAGACCAAAAGCTCTTTACAGCGCATTGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence16" spec="Sequence" taxon="2" totalcount="4" value="CGTTCGTATGTACTTGGAAAAAATACACATACTTGTCACGTCAATTATCCAAGTCCTAGGTTGTGGCATCGTGCATAGCTAGGGAGTCGACCTCGTAACTCCAAGCCGTCACAAAAGCAAACCTAACGTCCTCGGCTGGCAGGAACTGCGTAGGCCACAGACCAAAAGCTCTTTACAGCGCATCGTGGTCTGTTGGTCAG"/>
+        <sequence id="Sequence17" spec="Sequence" taxon="34" totalcount="4" value="CGCTTGTGTGTACTTGGAAATAATACACATACTTTTCACATCAATTATCCAAGTCCTAGGTTGTGCCATCGTGCATAGCTAGGAAGTCGAGCTCGTAACTCCAGGCCCTCACAAAAGCAATCCTAACGTCCTCGGTTGGCAGGAACTCAGTAGGGCACAGACCAAAAGTTCTTTACAGCGTATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence18" spec="Sequence" taxon="39" totalcount="4" value="CGTTTCTATGTACTGGGAAATAATACACATACTTGTCACGTTAATTATCCAAGTCCTAGGTTGGGGCATCGTGCATAGCTATGGAGTCGAGCTCGTAACTCCAAGCCCTCACAAAAGCAATCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGACACAGACCAAAAGCTCTTTACACCGCATCGTGGTCTGCTAGTCAG"/>
+        <sequence id="Sequence19" spec="Sequence" taxon="8" totalcount="4" value="CGTTTGTATGTACTTGCAAATAAGACACATACTTGTCACGTCAATTATCCAAGTTCTAAGTTGTGGCATCGTGCATAACTAGTGAGTCGAGCTCGTAACTCCAAGCCCTCACACAAGCAATCCTAACGTCCTCGGTTGGCAGGAACTGCGTAGGGCACAGATCAAAAGTTCTTTACAGCGCATCGCGGTCTGTTAGCCAG"/>
+        <sequence id="Sequence20" spec="Sequence" taxon="38" totalcount="4" value="CGTTTGTATGTACTTGGAAATAATACACATACTTGCCACGTCAATTATCCAAGTCCTAGGTTGTGGCATCGGGCATAGCGAGGGAGTCGAGCTCATAACTCCAATCCCTCACAAAAGCAATCCTAACGGCCTCCGATGGCAGGATCTGCGTATGGCGGAGACCAAAAGCTTTTTACAGCGCATCGTGGGCTGTTAGTCAG"/>
+        <sequence id="Sequence21" spec="Sequence" taxon="1" totalcount="4" value="CGTTTGTATGTCCTTGGAAATAATACACATACTTGTCGCGTCAATTATCCAAGTCCTAGGTTGTGGCATCGTGCATAGCTAGGGAGTCGAGCTCGTAACTCCAAGCCCTCACAAAAGCAATCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACCAAAAGCACTTTACAGCGCATCGTGGTCTGTTAGTCCG"/>
+        <sequence id="Sequence22" spec="Sequence" taxon="20" totalcount="4" value="CGTTTGTAAGTACTTGGAAATAATACACATACTTGTCACCTCGATTATCCAAGTCCTAGGTTGTGGCATCGTGCATAGCTAGGGAGTCGAGCTCGTAACTCCAAGCCCTCACAAAAGCAATCCTAGCGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACCAAAAGCTCTTTACTGCGCATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence23" spec="Sequence" taxon="7" totalcount="4" value="CTTTTGTATGTACTTGGAAATATTACACATACTTGTCACGTCAATTATCCAAGTCCTAGGTTGTGGCATCGCGCATAGCTGGAGAGTCGTGCTCGTAAATCCAAGCCCTCACAAAAGTAATCCTAACGTCCTCGGTTGGCAGGAACTGCCTAGGCCAGAGAACAACAGTTCTTTACAGCGCATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence24" spec="Sequence" taxon="36" totalcount="4" value="CGTTTGTATGCACTTGGAAATAATACACATACTTGTCACGTCAATCAGCCAAGTCCTAGGTTGTGGCATCGTGCAAAGCGAGGGACTCGAGCTCATAACTCCAAGCCCTCACAAAAGCAATACTAACGTCCACGGTTGGCAGGAACTGCGTCGGGCACAGACCAAAAGCTCTTTACTGCGCATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence25" spec="Sequence" taxon="4" totalcount="4" value="CGTTTGAAGGTATTTGGATATAATACACATACTTGTCACGTCAATTATCCAAGTCATAGGTTGGGGCATCATGCATAGCTAGGGAGTCGAGCTCGTAACTCCACGCCCTCACAAAAGCAATCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACAAAAAGCTCTTTACAGCGCATCGTGGTCTGTTAGTCCG"/>
+        <sequence id="Sequence26" spec="Sequence" taxon="5" totalcount="4" value="CGTTTGTATGTACTTGGAAATAATACACATACTTGTCACGTCAATTGTCCAAGTCCTAGGTTGTGGCATCGTGCATAGCTAGGGAGTCGAGCTCGTAACTCCAAGCCCTCACCAAAGCAATCGTAACGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACCACAAGATGTTTACAGCGCATGGTGGTCTGTTGCTCAG"/>
+        <sequence id="Sequence27" spec="Sequence" taxon="22" totalcount="4" value="CGTTTGTATGTACTAGGAAATAATACACCTACTTGTCACGCCAATTATCCAAGTCCTAGGTTGTGGCATCGTGCATAGCTAGGGAGTCGAGCTCGTAACTCCAAGCCCTCGCAAAAGCAATCCTAACGTCCTCGGATGGCAGGAACTGCGTCGGGCACAGACCAAAAGCTCGTTACAGCGCATCGTGGTCTGATAGGTAG"/>
+        <sequence id="Sequence28" spec="Sequence" taxon="29" totalcount="4" value="CGTTTGTATGTACTTGGAAATAATACACATACTTGTCACGTCAATTATCCAAGTCCCAAGATGTGGCATCGTGCATAACTAGGGAGTTGAGCCCGTAACTCCAAGCCCTCACAAAAGCAATCCTAACGTCCTCGGATGGCACGAACTGCGTAGGGCACAGACCAAACGCTCTTCACAGCGCAGCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence29" spec="Sequence" taxon="15" totalcount="4" value="CGTTTATATGTACTTGGGAATAGTACACATACTTGTCACGTCAATTATCCAAGTCCTAGGTTGATGCATCGTGCATAGCTACGGAGTCGTGCTCTTAACTCCAAGCCGTCACAAAAGCAATCCTAACGTCCTCGGGTTGCAGGAACTGCGTAGGGCACAGATCAAAAGCTCTTTACAGCGCAGCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence30" spec="Sequence" taxon="18" totalcount="4" value="AGTTTGTATGCGCTTGGAAATAATAGACATACTTGTCACGTCAATTATCCAAGTCCTAGGTTGTGGTATCGTGCATAGATACCGAGTGGAGCTCGTAACTCCAAGCCCTCACAAAAGCAATCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACCAAAAGCTCTTTGCAGATCATCGTAGTCTGTTAGTCAG"/>
+        <sequence id="Sequence31" spec="Sequence" taxon="19" totalcount="4" value="CGTTTGTATGTACTGGGAAATAATACACATACTTGTCACGTCAATTATCCAATTCCTAGGTTGTGGCATTGTGCATAGCTAGGGAGTCGAGGTCGTTACTCAAAGCCCGCACAAAAGCAATCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACCAAAAGCTCTTTACAGCACCTCGTGGTGTGTTAGTTAG"/>
+        <sequence id="Sequence32" spec="Sequence" taxon="30" totalcount="4" value="AGTTTGTATGTACTTGGAAATAATACACATACTTGTCACGGCAATTTTCCAAGTCGTAGGTTGTGGCATCGTGAATGGCTAGAGAGTCGAGCACGTAACTCCAAGCCCACACAAAAGCAATCCTAACGTCCTCAGATTGCAGGAACTGCGTAGCGCACACACCAAAAGCTCTTTACAGGGCATCGTAGGCTGTTAGTCAG"/>
+        <sequence id="Sequence33" spec="Sequence" taxon="27" totalcount="4" value="CGTTTGTATGTACTTGGAAATAATACACATACTTCTCACATCAATTGTCCAAGTCCTAGGTTGTGTCATCGTGCATAGCTAGGGAGTCTAGCTCGTAACTCCTAGCCCTAACAAAAGCAATACTAACGGCATCGGATGGCAGGAACTGCGTAGGGCACAGACCAAAATCTCTTTCCAGCGCATCGCAGTCTGTTAGTCAG"/>
+        <sequence id="Sequence34" spec="Sequence" taxon="12" totalcount="4" value="CGCGTGTATGTACTTGGAAATAATGCACATACTTGTCAAGACAATTATCCAAGTCCTAGCTTGTGGCATCGTGCATAGCTAGGGAGTCGAGCTCGTAACTCCAAGCCCTCACAAAAGCAATCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACCAAAGGCTCTTTACAGCGCATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence35" spec="Sequence" taxon="17" totalcount="4" value="CGTTTGAATGTACTTGGAAATAATACACATACTTGTCACGTCAATTATCCTAGTCCTAGGTTGTGGCATCGTGCATAGCACGGGAGTGGAGCTCGTAACTCCAAGACCTCACAGAAGCAATCCTAACGTCCTCGCATGGCAGGTACTGCGTAGAGCACAGACCAAGAGCTATTTACAGCGCATAGCGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence36" spec="Sequence" taxon="37" totalcount="4" value="CGTGTGTATGTAACTGGAAATAATGCACATACTTGTCACGTCAATTATCCAAGTCCTAGGTTGTGGCATCGTGCATAGCTAGAGAGTCGAGCTGGTAACTCCAAGCCCTCACAAAAGCAATCCTAACGTCCTCCGATGGCAGGAGCTGCGTAGGGCACAGACCAAAAGCTCTTTACAGCGCATCGTGGTCTGTTAGTCAG"/>
+        <sequence id="Sequence37" spec="Sequence" taxon="14" totalcount="4" value="CGGTTGTATGTAGTTGGAAATAGTACACATACTTGTCACGTCAGTTATCCAAGTCCTAGGTTGTGGCATCGTGCATAGCTAAGTAGTCGAGCTCGTAACTCCAAGCCCTCACAAAAGAAATCCTAACGTCTTCGGATGGCTGGAACTGCGTAGGGCACAGACCACAAGCTCTTTACAGCGCATCGTGGTCTGTACGTCAG"/>
+        <sequence id="Sequence38" spec="Sequence" taxon="9" totalcount="4" value="CGTTTGTATGAACTTGGAAATAATACACATACTTTTCACGTCAATTATCCAAGTCCTAGGTTGTGGCATCGTGCATAGCTAGGGACTCGAGCTCGTAACTCCAAGCCTTCACAAAAACAAGCCTAACGTCCGCGGATGGCAGGTACTGCGTAGGGCACAGACCACAAGCTTTTTACTGCGCATCGTGGTCTGTTACTCAG"/>
+        <sequence id="Sequence39" spec="Sequence" taxon="13" totalcount="4" value="CGTTTGTATGTACTTGGACATAATACACATACTTGTCACGTCAATTATCCAAGTCCTCGGTTGTGTCATCGTCCATAGCTAGGGAGCCGAGCTCGTAACTCCAAGCCCTCACAAAAGCAATCCTAACGTCCTCGGATGGCAGGAACTGCGTAGGGCACAGACCAACAGGGCTTTACAGCGCATCTTGGTCTGTTAGTCGG"/>
+    </data>
+
+    <run id="MCMC" spec="MCMC" chainLength="10000000">
+        <state id="State" spec="State">
+            <parameter id="NInfinity" spec="parameter.RealParameter" lower="0.0" name="stateNode">7.1018111120376E13</parameter>
+            <parameter id="b" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.728421562672993</parameter>
+            <parameter id="f0" spec="parameter.RealParameter" lower="0.0" name="stateNode" upper="1.0">0.7070555844305622</parameter>
+            <stateNode id="tree" spec="beast.base.evolution.tree.TreeParser" IsLabelledNewick="true" newick="(((((6:6.249901910818289,(((21:6.163056560940358,(28:6.142269349876058,26:6.142269349876058):0.020787211064300593):0.025707616253282772,(35:6.181102237243823,25:6.181102237243823):0.0076619399498181195):0.05910151948384268,(32:6.06744430156081,23:6.06744430156081):0.18042139511667354):0.002036214140805015):0.023542154688793282,(11:6.203637476320314,10:6.203637476320314):0.06980658918676763):0.016353596692990635,(((3:6.155059561431857,0:6.155059561431857):0.03966349539987668,((31:6.087689043901761,24:6.087689043901761):0.09733170239639222,16:6.185020746298153):0.009702310533580949):0.029530766859822144,((33:6.0094890502485105,2:6.0094890502485105):0.193171635409497,(34:6.043897560617086,(39:5.97208993553945,8:5.97208993553945):0.0718076250776365):0.15876312504092116):0.021593138033548342):0.06554383850851675):0.014451053838606676,(((38:6.164575679902746,1:6.164575679902746):0.08158916530581983,20:6.246164845208566):0.042637842275564886,((7:6.129135520893292,36:6.129135520893292):0.0853647119085128,4:6.214500232801805):0.07430245468232588):0.015446028554548796):0.07542740572465689,(5:6.376813016280294,((((22:6.177430770273481,(29:6.175041945915758,15:6.175041945915758):0.0023888243577223633):0.008508373714393613,18:6.185939143987874):0.051570436016913135,(19:6.185474573804262,30:6.185474573804262):0.05203500620052548):0.08141644472097731,(27:6.266556019875179,((12:6.206969715604596,((17:6.065879952278879,37:6.065879952278879):0.020429578850745145,14:6.086309531129624):0.12066018447497218):0.03645037106826354,(9:6.238607826604059,13:6.238607826604059):0.0048122600688005335):0.02313593320231977):0.052370004850585516):0.05788699155452903):0.002863105483042361):0.0;">
+                <taxonset id="TaxonSet" spec="TaxonSet">
+                    <taxon id="0" spec="Taxon"/>
+                    <taxon id="1" spec="Taxon"/>
+                    <taxon id="2" spec="Taxon"/>
+                    <taxon id="3" spec="Taxon"/>
+                    <taxon id="4" spec="Taxon"/>
+                    <taxon id="5" spec="Taxon"/>
+                    <taxon id="6" spec="Taxon"/>
+                    <taxon id="7" spec="Taxon"/>
+                    <taxon id="8" spec="Taxon"/>
+                    <taxon id="9" spec="Taxon"/>
+                    <taxon id="10" spec="Taxon"/>
+                    <taxon id="11" spec="Taxon"/>
+                    <taxon id="12" spec="Taxon"/>
+                    <taxon id="13" spec="Taxon"/>
+                    <taxon id="14" spec="Taxon"/>
+                    <taxon id="15" spec="Taxon"/>
+                    <taxon id="16" spec="Taxon"/>
+                    <taxon id="17" spec="Taxon"/>
+                    <taxon id="18" spec="Taxon"/>
+                    <taxon id="19" spec="Taxon"/>
+                    <taxon id="20" spec="Taxon"/>
+                    <taxon id="21" spec="Taxon"/>
+                    <taxon id="22" spec="Taxon"/>
+                    <taxon id="23" spec="Taxon"/>
+                    <taxon id="24" spec="Taxon"/>
+                    <taxon id="25" spec="Taxon"/>
+                    <taxon id="26" spec="Taxon"/>
+                    <taxon id="27" spec="Taxon"/>
+                    <taxon id="28" spec="Taxon"/>
+                    <taxon id="29" spec="Taxon"/>
+                    <taxon id="30" spec="Taxon"/>
+                    <taxon id="31" spec="Taxon"/>
+                    <taxon id="32" spec="Taxon"/>
+                    <taxon id="33" spec="Taxon"/>
+                    <taxon id="34" spec="Taxon"/>
+                    <taxon id="35" spec="Taxon"/>
+                    <taxon id="36" spec="Taxon"/>
+                    <taxon id="37" spec="Taxon"/>
+                    <taxon id="38" spec="Taxon"/>
+                    <taxon id="39" spec="Taxon"/>
+                </taxonset>
+            </stateNode>
+        </state>
+        <distribution id="posterior" spec="CompoundDistribution">
+            <distribution id="prior" spec="CompoundDistribution">
+                <distribution id="Coalescent" spec="Coalescent">
+                    <populationModel id="gompertzPopFunc" spec="phylonco.beast.evolution.populationmodel.GompertzGrowth" NInfinity="@NInfinity" b="@b" f0="@f0"/>
+                    <treeIntervals id="TreeIntervals" spec="beast.base.evolution.tree.TreeIntervals" tree="@tree"/>
+                </distribution>
+                <distribution id="f0.prior" spec="distribution.Prior" x="@f0">
+                    <distr id="Beta" spec="distribution.Beta">
+                        <parameter id="RealParameter" spec="parameter.RealParameter" name="alpha">20.0</parameter>
+                        <parameter id="RealParameter1" spec="parameter.RealParameter" name="beta">7.0</parameter>
+                    </distr>
+                </distribution>
+                <distribution id="NInfinity.prior" spec="distribution.Prior" x="@NInfinity">
+                    <distr id="LogNormalDistributionModel" spec="distribution.LogNormalDistributionModel">
+                        <parameter id="RealParameter2" spec="parameter.RealParameter" name="M">32.0</parameter>
+                        <parameter id="RealParameter3" spec="parameter.RealParameter" name="S">0.5</parameter>
+                    </distr>
+                </distribution>
+                <distribution id="b.prior" spec="distribution.Prior" x="@b">
+                    <distr id="LogNormalDistributionModel1" spec="distribution.LogNormalDistributionModel">
+                        <parameter id="RealParameter4" spec="parameter.RealParameter" name="M">-0.3</parameter>
+                        <parameter id="RealParameter5" spec="parameter.RealParameter" name="S">0.05</parameter>
+                    </distr>
+                </distribution>
+            </distribution>
+            <distribution id="likelihood" spec="CompoundDistribution">
+                <distribution id="D.treeLikelihood" spec="ThreadedTreeLikelihood" tree="@tree">
+                    <data idref="D"/>
+                    <siteModel id="SiteModel" spec="SiteModel">
+                        <substModel id="JukesCantor" spec="JukesCantor"/>
+                    </siteModel>
+                    <branchRateModel id="StrictClockModel" spec="beast.base.evolution.branchratemodel.StrictClockModel">
+                        <parameter id="RealParameter6" spec="parameter.RealParameter" name="clock.rate">0.01</parameter>
+                    </branchRateModel>
+                </distribution>
+            </distribution>
+        </distribution>
+        <operator id="NInfinity.scale" spec="kernel.BactrianScaleOperator" parameter="@NInfinity" upper="10.0" weight="1.0"/>
+        <operator id="b.scale" spec="kernel.BactrianScaleOperator" parameter="@b" upper="10.0" weight="1.0"/>
+        <operator id="f0.scale" spec="kernel.BactrianScaleOperator" parameter="@f0" upper="10.0" weight="1.0"/>
+        <operator id="gompertzPopFuncUptreeDownOperator" spec="operator.UpDownOperator" scaleFactor="0.75" weight="3.0">
+            <up idref="f0"/>
+            <up idref="b"/>
+            <down idref="tree"/>
+        </operator>
+        <operator id="tree.narrowExchange" spec="Exchange" tree="@tree" weight="12.994070685374634"/>
+        <operator id="tree.rootAgeScale" spec="kernel.BactrianScaleOperator" rootOnly="true" tree="@tree" upper="0.975" weight="1.0"/>
+        <operator id="tree.scale" spec="kernel.BactrianScaleOperator" tree="@tree" upper="0.975" weight="12.994070685374634"/>
+        <operator id="tree.subtreeSlide" spec="kernel.BactrianSubtreeSlide" size="0.6379676121763336" tree="@tree" weight="12.994070685374634"/>
+        <operator id="tree.uniform" spec="kernel.BactrianNodeOperator" tree="@tree" weight="12.994070685374634"/>
+        <operator id="tree.wideExchange" spec="Exchange" isNarrow="false" tree="@tree" weight="2.080716549261844"/>
+        <operator id="tree.wilsonBalding" spec="WilsonBalding" tree="@tree" weight="2.080716549261844"/>
+        <logger id="ScreenLogger" spec="Logger" logEvery="100000">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+            <log idref="NInfinity"/>
+            <log idref="b"/>
+            <log idref="f0"/>
+        </logger>
+        <logger id="Logger" spec="Logger" fileName="gompCoal-15.log" logEvery="1000">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+            <log idref="NInfinity"/>
+            <log idref="b"/>
+            <log idref="f0"/>
+            <log id="TreeStatLogger" spec="beast.base.evolution.tree.TreeStatLogger" tree="@tree"/>
+            <log idref="D.treeLikelihood"/>
+        </logger>
+        <logger id="tree.treeLogger" spec="Logger" fileName="gompCoal-15.trees" logEvery="1000" mode="tree">
+            <log idref="tree"/>
+        </logger>
+    </run>
+
+</beast>
+
